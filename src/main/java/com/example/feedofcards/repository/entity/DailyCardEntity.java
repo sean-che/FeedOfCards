@@ -2,9 +2,11 @@ package com.example.feedofcards.repository.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "daily_card")
@@ -22,5 +24,12 @@ public class DailyCardEntity implements Serializable {
     private String message;
     @Column(length = 128)
     private String author;
+
+    private Integer day;
+
+    @OneToMany
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude //Needed to avoid fetch for lazy entity
+    private List<DailyCardView> dailyCardViews;
 
 }

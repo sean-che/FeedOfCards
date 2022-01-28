@@ -2,9 +2,11 @@ package com.example.feedofcards.repository.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "status_card")
@@ -24,5 +26,10 @@ public class StatusCardEntity implements Serializable {
     private String message;
     @Column(length = 128)
     private String button;
+
+    @OneToMany
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude //Needed to avoid fetch for lazy entity
+    private List<StatusCardView> statusCardViews;
 
 }

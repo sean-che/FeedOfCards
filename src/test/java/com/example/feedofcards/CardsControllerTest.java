@@ -32,7 +32,7 @@ class CardsControllerTest {
     @Test
     public void dailyCardConditional() throws Exception {
         while (true) {
-            MockHttpServletResponse response = mvc.perform(get("/dailyCardConditional").param("userId", "1"))
+            MockHttpServletResponse response = mvc.perform(get("/dailyCardConditional").param("userId", "2"))
                     .andReturn().getResponse();
             if (response.getStatus() == HttpStatus.OK.value()) {
                 assertTrue(response.getContentAsString().length() > 1);
@@ -55,7 +55,7 @@ class CardsControllerTest {
     @Test
     public void statusCardConditional() throws Exception {
         while (true) {
-            MockHttpServletResponse response = mvc.perform(get("/statusCardConditional").param("userId", "1"))
+            MockHttpServletResponse response = mvc.perform(get("/statusCardConditional").param("userId", "2"))
                     .andReturn().getResponse();
             if (response.getStatus() == HttpStatus.OK.value()) {
                 assertTrue(response.getContentAsString().length() > 1);
