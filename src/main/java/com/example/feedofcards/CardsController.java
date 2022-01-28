@@ -18,8 +18,18 @@ public class CardsController {
         return ResponseEntity.ok(cardsService.getDailyCard());
     }
 
+    @GetMapping("/dailyCardConditional")
+    public ResponseEntity<DailyCard> getDailyCardConditional() {
+        return ResponseEntity.ok(cardsService.getDailyCard());
+    }
+
     @GetMapping("/statusCard")
     public ResponseEntity<StatusCard> getStatusCard() {
+        return ResponseEntity.ok(cardsService.getStatusCard());
+    }
+
+    @GetMapping("/statusCardConditional")
+    public ResponseEntity<StatusCard> getStatusCardConditional() {
         return ResponseEntity.ok(cardsService.getStatusCard());
     }
 
