@@ -24,7 +24,7 @@ class CardsControllerTest {
 
     @Test
     public void dailyCardHasResponse() throws Exception {
-        mvc.perform(get("/dailyCard").param("userId", "1"))
+        mvc.perform(get("/dailyCard").param("userId", "10"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
@@ -32,7 +32,7 @@ class CardsControllerTest {
     @Test
     public void dailyCardConditional() throws Exception {
         while (true) {
-            MockHttpServletResponse response = mvc.perform(get("/dailyCardConditional").param("userId", "2"))
+            MockHttpServletResponse response = mvc.perform(get("/dailyCardConditional").param("userId", "12"))
                     .andReturn().getResponse();
             if (response.getStatus() == HttpStatus.OK.value()) {
                 assertTrue(response.getContentAsString().length() > 1);
@@ -47,7 +47,7 @@ class CardsControllerTest {
 
     @Test
     public void statusCardHasResponse() throws Exception {
-        mvc.perform(get("/statusCard").param("userId", "1"))
+        mvc.perform(get("/statusCard").param("userId", "13"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
@@ -55,7 +55,7 @@ class CardsControllerTest {
     @Test
     public void statusCardConditional() throws Exception {
         while (true) {
-            MockHttpServletResponse response = mvc.perform(get("/statusCardConditional").param("userId", "2"))
+            MockHttpServletResponse response = mvc.perform(get("/statusCardConditional").param("userId", "14"))
                     .andReturn().getResponse();
             if (response.getStatus() == HttpStatus.OK.value()) {
                 assertTrue(response.getContentAsString().length() > 1);

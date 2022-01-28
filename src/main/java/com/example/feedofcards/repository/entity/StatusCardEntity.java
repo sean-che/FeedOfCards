@@ -27,7 +27,7 @@ public class StatusCardEntity implements Serializable {
     @Column(length = 128)
     private String button;
 
-    @OneToMany
+    @OneToMany(mappedBy = "statusCard")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude //Needed to avoid fetch for lazy entity
     private List<StatusCardView> statusCardViews;

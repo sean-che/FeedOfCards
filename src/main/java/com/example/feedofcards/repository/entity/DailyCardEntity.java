@@ -27,7 +27,7 @@ public class DailyCardEntity implements Serializable {
 
     private Integer day;
 
-    @OneToMany
+    @OneToMany(mappedBy = "dailyCard")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude //Needed to avoid fetch for lazy entity
     private List<DailyCardView> dailyCardViews;

@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "daily_card_view")
+@Table(name = "status_card_view", indexes = @Index(name = "status_card_view_n1", columnList = "status_card_id, user_id"))
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,7 +23,7 @@ public class StatusCardView implements Serializable {
     @JoinColumn(name = "status_card_id")
     private StatusCardEntity statusCard;
 
-    @Column(nullable = false)
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
     @Builder.Default
